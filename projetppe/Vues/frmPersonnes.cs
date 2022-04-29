@@ -5,12 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
-
+using projetppe.Modele;
 namespace projetppe
 {
     public partial class FrmPersonnes : Form
     {
         public Program program;
+        public Personnel personnel;
 
         public FrmPersonnes(Program program)
         {
@@ -44,8 +45,27 @@ namespace projetppe
 
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        private void dateTimePicker2_Load(object sender, EventArgs e)
         {
+           
+        }
+
+        private void dateTimePicker1_Load(object sender, EventArgs e)
+        {
+            
+        }
+
+        public void SetMyCustomFormat()
+        {
+
+
+
+        }
+
+        public void SetMyCustomFormat2()
+        {
+           
+
 
         }
 
@@ -65,6 +85,25 @@ namespace projetppe
                 job = "Trader";
             program.CreateUser(tbxutilisateur.Text, textBox1.Text, job, checksuspendu.Checked, dateTimePicker1.Value, dateTimePicker2.Value);
             MessageBox.Show("La personne a bien été créée !");
+        }
+
+        private void checksuspendu_Click(object sender, EventArgs e)
+        {
+           /* switch (checksuspendu.CheckState)
+            {
+                case CheckState.Checked:
+                    personnel.Suspendu = true;
+                    break;
+                case CheckState.Unchecked:
+                    personnel.Suspendu = false;
+                    break;
+                case CheckState.Indeterminate:
+                   
+                    break;
+
+            }
+
+            */
         }
     }
 }

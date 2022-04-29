@@ -153,7 +153,6 @@ namespace projetppe
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(107, 25);
             this.dateTimePicker1.TabIndex = 12;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // label2
             // 
@@ -225,6 +224,7 @@ namespace projetppe
             this.checksuspendu.TabIndex = 18;
             this.checksuspendu.Text = "Suspendu";
             this.checksuspendu.UseVisualStyleBackColor = true;
+            this.checksuspendu.Click += new System.EventHandler(this.checksuspendu_Click);
             // 
             // radioButton3
             // 

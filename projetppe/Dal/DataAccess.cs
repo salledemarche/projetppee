@@ -4,14 +4,14 @@ using projetppe.Modele;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using projetppe.C
+using projetppe;
 
 namespace projetppe
 {
     class DataAccess
     {
-        private static string connectionString = "Server=51.83.79.4;port=1632;Database=salledemarches;Uid=pauline;password=508evGksQR4iB7kC";
-
+        private static string connectionString = "Server=51.83.79.4;port=1632;Database=salledemarches;Uid=root;password=.Destination17";
+        public Personnel personnel1;
         public static bool AuthenticationControl(string id, string pwd)
         {
             string req = "SELECT users.user, users.pwd";
@@ -37,15 +37,17 @@ namespace projetppe
             }
         }
 
-        public void Loadgrid(int id, string nom, string prenom, string role, bool suspendu)
+        //public void Loadgrid(int id, string nom, string prenom, string role, bool suspendu)
+        /*
+        public void Loadgrid()
         {
             string req = "SELECT * FROM Personnel";
             Dictionary<string, object> parameters = new Dictionary<string, object>();
-            parameters.Add("@id", id);
-            parameters.Add("@nom", nom);
-            parameters.Add("@prenom", prenom);
-            parameters.Add("@role", role);
-            parameters.Add("@suspendu", suspendu);
+            //parameters.Add("@id", id);
+            //parameters.Add("@nom", nom);
+            //parameters.Add("@prenom", prenom);
+            //parameters.Add("@role", role);
+            //parameters.Add("@suspendu", suspendu);
             MySqlConnection connection = null;
             Connect curseur = Connect.Instance(connectionString);
             curseur.Open();
@@ -63,26 +65,29 @@ namespace projetppe
             {
                 curseur.Close();
             }
-        }
+        }*/
 
-        public static bool creerUtilisateur(string nom, string prenom, string job, bool suspendu, DateTime dateDebut, DateTime JudateFinsqua )
+        public static bool creerUtilisateur(string nom, string prenom, string job, bool suspendu, DateTime dateDebut, DateTime datefin)
         {
             string mdp = rdmString(16);
             string id = $"{prenom.ToLower()}.{nom.ToLower()}";
             string req;
             if(job== "Responsable")
             {
-                req = "insert into `responsable` (`id`,`mdp`,`Nom`,`Prénom`) values (@id, @mdp, @nom, @prenom, @datedebut, @datefin)";
+
+                req = "insert into `responsable` (`id`,`mdp`,`Nom`,`Prénom`,`datedebut`,`datefin`,`suspendu`) values (@id, @mdp, @nom, @prenom, @datedebut, @datefin, @suspendu)";
                 //req+= "WHERE responsable.mdp = SHA2(@mdp, 256)";
             }
             else if(job == "Administrateur")
             {
-                 req = "insert into `Admin` (`id`,`mdp`,`Nom`,`Prénom`) values (@id, @mdp, @nom, @prenom)";
+                 req = "insert into `Admin` (`id`,`mdp`,`Nom`,`Prénom`,`datedebut`,`datefin`,`suspendu`) values (@id, @mdp, @nom, @prenom, @datedebut, @datefin, @suspendu)";
                 //req+= "WHERE Admin.id = SHA2(@id, 256) AND Admin.mdp = SHA2(@mdp, 256)";
             }
             else if (job == "Trader")
             {
-                 req = "insert into `trader` (`id`,`mdp`,`Nom`,`Prénom`) values (@id, @mdp, @nom, @prenom)";
+              
+   
+                 req = "insert into `trader` (`id`,`mdp`,`Nom`,`Prénom`,`datedebut`,`datefin`,`suspendu`) values (@id, @mdp, @nom, @prenom, @datedebut, @datefin, @suspendu)";
                 //req += "WHERE trader.id = SHA2(@id, 256) AND trader.mdp = SHA2(@mdp, 256)";
             }
             else {
@@ -93,6 +98,10 @@ namespace projetppe
             parameters.Add("@mdp", mdp);
             parameters.Add("@nom", nom);
             parameters.Add("@prenom", prenom);
+            parameters.Add("@datedebut", dateDebut.ToString("yyyy-MM-dd H:mm:ss"));
+            parameters.Add("@datefin", datefin.ToString("yyyy-MM-dd H:mm:ss"));
+            parameters.Add("@suspendu", suspendu ? "1" : "0");
+
             Connect curseur = Connect.Instance(connectionString);
             curseur.Open();
             curseur.ReqUpdate(req, parameters);
