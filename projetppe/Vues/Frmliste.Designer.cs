@@ -37,12 +37,11 @@ namespace projetppe
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fffff = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Administrateur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Suspendu = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.RdIdentifiant = new System.Windows.Forms.RadioButton();
-            this.RdNom = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Suspendu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.connectBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectBindingSource)).BeginInit();
@@ -61,13 +60,13 @@ namespace projetppe
             this.fffff,
             this.Administrateur,
             this.Suspendu});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 146);
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(6);
+            this.dataGridView1.Location = new System.Drawing.Point(4, 6);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 82;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1627, 503);
+            this.dataGridView1.Size = new System.Drawing.Size(876, 236);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // fdfff
             // 
@@ -106,57 +105,15 @@ namespace projetppe
             // 
             // Suspendu
             // 
-            this.Suspendu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.Suspendu.HeaderText = "Suspendu";
-            this.Suspendu.MinimumWidth = 10;
             this.Suspendu.Name = "Suspendu";
-            this.Suspendu.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Suspendu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // RdIdentifiant
-            // 
-            this.RdIdentifiant.AutoSize = true;
-            this.RdIdentifiant.Location = new System.Drawing.Point(58, 640);
-            this.RdIdentifiant.Margin = new System.Windows.Forms.Padding(6);
-            this.RdIdentifiant.Name = "RdIdentifiant";
-            this.RdIdentifiant.Size = new System.Drawing.Size(154, 36);
-            this.RdIdentifiant.TabIndex = 2;
-            this.RdIdentifiant.TabStop = true;
-            this.RdIdentifiant.Text = "Identifiant";
-            this.RdIdentifiant.UseVisualStyleBackColor = true;
-            this.RdIdentifiant.CheckedChanged += new System.EventHandler(this.RdIdentifiant_CheckedChanged);
-            // 
-            // RdNom
-            // 
-            this.RdNom.AutoSize = true;
-            this.RdNom.Location = new System.Drawing.Point(58, 587);
-            this.RdNom.Margin = new System.Windows.Forms.Padding(6);
-            this.RdNom.Name = "RdNom";
-            this.RdNom.Size = new System.Drawing.Size(98, 36);
-            this.RdNom.TabIndex = 3;
-            this.RdNom.TabStop = true;
-            this.RdNom.Text = "Nom";
-            this.RdNom.UseVisualStyleBackColor = true;
-            this.RdNom.CheckedChanged += new System.EventHandler(this.RdNom_CheckedChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(45, 540);
-            this.label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(186, 32);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Visualisation Par";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(15, 703);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(6);
+            this.pictureBox1.Location = new System.Drawing.Point(44, 309);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(1595, 734);
+            this.pictureBox1.Size = new System.Drawing.Size(763, 283);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 17;
             this.pictureBox1.TabStop = false;
@@ -166,17 +123,41 @@ namespace projetppe
             // 
             this.connectBindingSource.DataSource = typeof(projetppe.Dal.Connect);
             // 
+            // radioButton2
+            // 
+            this.radioButton2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.radioButton2.Location = new System.Drawing.Point(12, 248);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.radioButton2.Size = new System.Drawing.Size(147, 58);
+            this.radioButton2.TabIndex = 18;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Identification";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.radioButton1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(128)))), ((int)(((byte)(185)))));
+            this.radioButton1.Location = new System.Drawing.Point(165, 248);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.radioButton1.Size = new System.Drawing.Size(147, 58);
+            this.radioButton1.TabIndex = 19;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Nom";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // Frmliste
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(13F, 32F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1625, 1442);
+            this.ClientSize = new System.Drawing.Size(887, 553);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.RdNom);
-            this.Controls.Add(this.RdIdentifiant);
             this.Controls.Add(this.dataGridView1);
-            this.Margin = new System.Windows.Forms.Padding(6);
             this.Name = "Frmliste";
             this.Text = "Frmliste";
             this.Load += new System.EventHandler(this.Frmliste_Load);
@@ -184,23 +165,21 @@ namespace projetppe
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.connectBindingSource)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.RadioButton RdIdentifiant;
-        private System.Windows.Forms.RadioButton RdNom;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.BindingSource connectBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn fdfff;
         private System.Windows.Forms.DataGridViewTextBoxColumn ffff;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn fffff;
         private System.Windows.Forms.DataGridViewTextBoxColumn Administrateur;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Suspendu;
-        private System.Windows.Forms.BindingSource connectBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Suspendu;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
     }
 }

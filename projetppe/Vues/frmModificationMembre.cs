@@ -14,5 +14,10 @@ namespace projetppe
         {
             InitializeComponent();
         }
+
+        private void pnlutilisateur_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
