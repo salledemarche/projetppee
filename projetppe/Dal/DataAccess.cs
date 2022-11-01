@@ -10,7 +10,7 @@ namespace projetppe
 {
     class DataAccess
     {
-        private static string connectionString = "Server=51.83.79.4;port=1632;Database=salledemarches;Uid=root;password=.Destination17";
+        private static string connectionString = "Server=;port=;Database=;Uid=root;password=";
         public Personnel personnel1;
         public static bool AuthenticationControl(string id, string pwd)
         {
